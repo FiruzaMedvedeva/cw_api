@@ -1,0 +1,40 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc -w -p .",
+    "start": "nodemon --exec babel-node src/server.js",
+    "sync": "babel-node ./node_modules/typeorm/cli.js schema:sync",
+    "build": "babel src --out-dir dist",
+    "serve": "nodemon --inspect built/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deceptikon/nodejs-starter-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deceptikon/nodejs-starter-app/issues"
+  },
+  "homepage": "https://github.com/deceptikon/nodejs-starter-app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.3",
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.0.8",
+    "typeorm": "^0.2.17"
+  }
+}
