@@ -2,26 +2,27 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-//  ManyToOne
+  ManyToOne
 } from "typeorm";
+import Projects from "./Projects"
 
 
 @Entity()
-export class Funds  {
+export class Funds extends BaseEntity {
 
   @PrimaryGeneratedColumn()
-  id = null;
+  id:number;
 
-  @Column("varchar")
-  required = '';
+  @Column();
+  required: string;
 
-  @Column("varchar")
-  collected = '';
+  @Column();
+  collected: string;
 
-  @Column("datetime")
-  launched = '';
+  @Column()
+  launched: string;
 
-  //@ToOne (type => myProjects, proj => proj.sum)
-  //sum = myProjects;
+  @ManyToOne(() => Projects,  projects => projects.funds)
+  projects: Projects;
 
 }

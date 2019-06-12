@@ -8,7 +8,8 @@ import {
   ManyToMany
 } from "typeorm";
 import { Categories } from "./Categories";
-//import { Funds } from "./Funds";
+import { Funds } from "./Funds";
+import {User} from "./User";
 
 @Entity()
 export class Projects extends BaseEntity {
@@ -37,4 +38,10 @@ export class Projects extends BaseEntity {
   @ManyToMany(() => Categories, cat => cat.projects)
   @JoinTable()
   cats: Categories[];
+
+  @OneToMany (type => User, user => user.projects)
+  user: Projects[];
+
+  @OneToMany (type => Funds, funds => funds.projects)
+  funds: Projects[];
 }

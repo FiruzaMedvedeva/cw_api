@@ -2,11 +2,12 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  //ManyToOne
+  ManyToOne,
 } from "typeorm";
+import {Projects} from "./Projects";
 
 @Entity()
-export class User  {
+export class User  extends BaseEntity {
 
   @PrimaryGeneratedColumn()
   id: number;
@@ -26,6 +27,6 @@ export class User  {
   @Column()
   about: string;
 
-  //@OneToMany (type => ContentBox)
-  //u = conbox;
+  @ManyToOne( type => Projects, projects => projects.user)
+  user: Projects;
 }

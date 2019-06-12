@@ -5,7 +5,7 @@ import {
   Column,
   ManyToMany
 } from "typeorm";
-import { Projects } from './Projects'
+import { Projects } from "./Projects";
 
 @Entity()
 export class Categories extends BaseEntity {
